@@ -85,9 +85,9 @@ Usage
 When the EventType is `.audioQueryCreated` you can extract the *initial* response by doing the following.
    
     ```
-         if let response = event.response! as? QueryResponse {
+      if let response = event.response! as? QueryResponse {
             print("response is \(response)")
-         }
+      }
     ```
 Note: This response indicates that a successful connection was made and returns meta-data. This resposne can be ignored by most users
 
