@@ -40,7 +40,7 @@ Context - Entities
 
 One of the features of using the Voysis service is that different json response types can be returned depending on what service you're subscribed to.
 The json objects which vary in type are Context and Entities. see [Api Docs](https://developers.voysis.com/docs/apis-1#section-stream-audio-data) for information.
-In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for Context and Entities must be declared in advance and included during service creation. See the [demo application](https://github.com/voysis/voysis-ios/tree/master/example/VoysisDemo/VoysisDemo) and Usage below for an example of this in action.
+In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for Context and Entities must be declared in advance and included during service creation. See the [demo application](https://github.com/voysis/voysis-ios/tree/master/example/VoysisDemo/VoysisDemo) and [Usage](https://github.com/voysis/voysis-ios/blob/master/README.md#usage) below for an example of this in action.
 
 
 Usage
