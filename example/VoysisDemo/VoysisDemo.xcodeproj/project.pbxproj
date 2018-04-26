@@ -11,8 +11,6 @@
 		654FADE5209208EE007AE515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FADE4209208EE007AE515 /* ViewController.swift */; };
 		654FADEB209208EE007AE515 /* VoysisDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 654FADE9209208EE007AE515 /* VoysisDemo.xcdatamodeld */; };
 		654FADED209208EF007AE515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654FADEC209208EF007AE515 /* Assets.xcassets */; };
-		654FADF0209208EF007AE515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654FADEE209208EF007AE515 /* LaunchScreen.storyboard */; };
-		654FADFB209208EF007AE515 /* VoysisDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FADFA209208EF007AE515 /* VoysisDemoTests.swift */; };
 		654FAE07209209C3007AE515 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654FAE05209209C3007AE515 /* Starscream.framework */; };
 		654FAE08209209C3007AE515 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654FAE05209209C3007AE515 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		654FAE09209209C3007AE515 /* Voysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654FAE06209209C3007AE515 /* Voysis.framework */; };
@@ -21,16 +19,6 @@
 		654FAE0F20920A2C007AE515 /* CommerceEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FAE0E20920A2C007AE515 /* CommerceEntities.swift */; };
 		654FAE1120920B2A007AE515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654FAE1020920B2A007AE515 /* Main.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		654FADF7209208EF007AE515 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 654FADD7209208ED007AE515 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 654FADDE209208EE007AE515;
-			remoteInfo = VoysisDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		654FAE0B209209C3007AE515 /* Embed Frameworks */ = {
@@ -55,9 +43,6 @@
 		654FADEC209208EF007AE515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654FADEF209208EF007AE515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		654FADF1209208EF007AE515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		654FADF6209208EF007AE515 /* VoysisDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoysisDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		654FADFA209208EF007AE515 /* VoysisDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoysisDemoTests.swift; sourceTree = "<group>"; };
-		654FADFC209208EF007AE515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		654FAE05209209C3007AE515 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		654FAE06209209C3007AE515 /* Voysis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Voysis.framework; path = Carthage/Build/iOS/Voysis.framework; sourceTree = "<group>"; };
 		654FAE0C20920A0E007AE515 /* CommerceContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceContext.swift; sourceTree = "<group>"; };
@@ -75,13 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		654FADF3209208EF007AE515 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,7 +69,6 @@
 				654FAE05209209C3007AE515 /* Starscream.framework */,
 				654FAE06209209C3007AE515 /* Voysis.framework */,
 				654FADE1209208EE007AE515 /* VoysisDemo */,
-				654FADF9209208EF007AE515 /* VoysisDemoTests */,
 				654FADE0209208EE007AE515 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				654FADDF209208EE007AE515 /* VoysisDemo.app */,
-				654FADF6209208EF007AE515 /* VoysisDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,15 +95,6 @@
 				654FAE1020920B2A007AE515 /* Main.storyboard */,
 			);
 			path = VoysisDemo;
-			sourceTree = "<group>";
-		};
-		654FADF9209208EF007AE515 /* VoysisDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				654FADFA209208EF007AE515 /* VoysisDemoTests.swift */,
-				654FADFC209208EF007AE515 /* Info.plist */,
-			);
-			path = VoysisDemoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,24 +118,6 @@
 			productReference = 654FADDF209208EE007AE515 /* VoysisDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		654FADF5209208EF007AE515 /* VoysisDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 654FAE02209208EF007AE515 /* Build configuration list for PBXNativeTarget "VoysisDemoTests" */;
-			buildPhases = (
-				654FADF2209208EF007AE515 /* Sources */,
-				654FADF3209208EF007AE515 /* Frameworks */,
-				654FADF4209208EF007AE515 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				654FADF8209208EF007AE515 /* PBXTargetDependency */,
-			);
-			name = VoysisDemoTests;
-			productName = VoysisDemoTests;
-			productReference = 654FADF6209208EF007AE515 /* VoysisDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,10 +130,6 @@
 				TargetAttributes = {
 					654FADDE209208EE007AE515 = {
 						CreatedOnToolsVersion = 9.3;
-					};
-					654FADF5209208EF007AE515 = {
-						CreatedOnToolsVersion = 9.3;
-						TestTargetID = 654FADDE209208EE007AE515;
 					};
 				};
 			};
@@ -202,7 +147,6 @@
 			projectRoot = "";
 			targets = (
 				654FADDE209208EE007AE515 /* VoysisDemo */,
-				654FADF5209208EF007AE515 /* VoysisDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -213,15 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				654FAE1120920B2A007AE515 /* Main.storyboard in Resources */,
-				654FADF0209208EF007AE515 /* LaunchScreen.storyboard in Resources */,
 				654FADED209208EF007AE515 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		654FADF4209208EF007AE515 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,23 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		654FADF2209208EF007AE515 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				654FADFB209208EF007AE515 /* VoysisDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		654FADF8209208EF007AE515 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 654FADDE209208EE007AE515 /* VoysisDemo */;
-			targetProxy = 654FADF7209208EF007AE515 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		654FADEE209208EF007AE515 /* LaunchScreen.storyboard */ = {
@@ -428,48 +348,6 @@
 			};
 			name = Release;
 		};
-		654FAE03209208EF007AE515 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 457EEH86SV;
-				INFOPLIST_FILE = VoysisDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.VoysisDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoysisDemo.app/VoysisDemo";
-			};
-			name = Debug;
-		};
-		654FAE04209208EF007AE515 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 457EEH86SV;
-				INFOPLIST_FILE = VoysisDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.VoysisDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoysisDemo.app/VoysisDemo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -487,15 +365,6 @@
 			buildConfigurations = (
 				654FAE00209208EF007AE515 /* Debug */,
 				654FAE01209208EF007AE515 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		654FAE02209208EF007AE515 /* Build configuration list for PBXNativeTarget "VoysisDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				654FAE03209208EF007AE515 /* Debug */,
-				654FAE04209208EF007AE515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
