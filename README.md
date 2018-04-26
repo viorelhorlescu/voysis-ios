@@ -61,22 +61,22 @@ Usage
   This can be a good place to update animation etc, to indicate to the user that recording is in progress.
 
 
-     ```
-       func onVoysisEvent(event: Event) {
-            switch event.type {
-            case .recordingStarted:
-                print("notifies that recording has started")
-            case .recordingFinished:
-               print("notifies that recording has finished")
-            case .requestCancelled:
-                print("notifies that request has been cancelled")
-            case .audioQueryCreated:
-               print("called when the initial connection json response is returned")
-            case .audioQueryCompleted:
-               print("called when final json response is returned.")
-            }
-       }
-    ```
+```swift
+func onVoysisEvent(event: Event) {
+    switch event.type {
+    case .recordingStarted:
+        print("notifies that recording has started")
+    case .recordingFinished:
+        print("notifies that recording has finished")
+    case .requestCancelled:
+        print("notifies that request has been cancelled")
+    case .audioQueryCreated:
+        print("called when the initial connection json response is returned")
+    case .audioQueryCompleted:
+        print("called when final json response is returned.")
+    }
+}
+```
 
 - The `Voysis.Event` object contains two fields: `EventType` and `ApiResposne`.
  `EventType` is a status enum which will always be populated.
@@ -84,23 +84,24 @@ Usage
  
 When the EventType is `.audioQueryCreated` you can extract the *initial* response by doing the following.
    
-    ```
-      if let response = event.response! as? QueryResponse {
-            print("response is \(response)")
-      }
-    ```
+```swift
+if let response = event.response! as? QueryResponse {
+    print("response is \(response)")
+}
+```
 Note: This response indicates that a successful connection was made and returns meta-data. This resposne can be ignored by most users
 
 When the EventType is `.audioQueryCompleted` you can extract the *final* response by doing the following
     
-    ```
-         if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
-                if let data = try? encoder.encode(response),
-                   let json = String(data: data, encoding: .utf8) {
-                    print(json)
-                }
-         }
-    ```
+```swift
+if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
+    if let data = try? encoder.encode(response),
+        let json = String(data: data, encoding: .utf8) {
+            print(json)
+        }
+    }
+}
+```
 
 Integration - Carthage
 -------------
