@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6546C12C2077CDCF00C12621 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A10200515E3005AFF23 /* EventType.swift */; };
+		6546C12D2077CDCF00C12621 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A122005163F005AFF23 /* Event.swift */; };
+		6546C12E2077CDCF00C12621 /* VoysisError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED4B973DD77DA54D742C7 /* VoysisError.swift */; };
+		6546C12F2077CDCF00C12621 /* SocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D499FA2004FD6A005AFF23 /* SocketResponse.swift */; };
+		6546C1302077CDCF00C12621 /* SocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A08200506A3005AFF23 /* SocketRequest.swift */; };
+		6546C1312077CDCF00C12621 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED071C98AA7D34E56437C /* Context.swift */; };
+		6546C1322077CDCF00C12621 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A1C20051F2B005AFF23 /* AudioRecorder.swift */; };
+		6546C1332077CDCF00C12621 /* AudioRecorderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A2C200626C2005AFF23 /* AudioRecorderImpl.swift */; };
+		6546C1342077CDCF00C12621 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530A35C2063E2AE009B33E7 /* AudioPlayer.swift */; };
+		6546C1362077CDCF00C12621 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A212005362F005AFF23 /* Client.swift */; };
+		6546C1392077CDCF00C12621 /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A2E200627F8005AFF23 /* ServiceImpl.swift */; };
+		654C5E2A207B7D99002FF5E9 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0461206D287200DEA61F /* Starscream.framework */; };
+		654C5E2D207B7E07002FF5E9 /* Starscream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 654C5E2C207B7E07002FF5E9 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		654C5E2E207B7FD8002FF5E9 /* Voysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D499B220039AD6005AFF23 /* Voysis.framework */; };
+		659E8F9B202C600E00B910C7 /* HeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED711D62BDC6CDE44083F /* HeaderTests.swift */; };
+		65C4AE0A202487FF008F2A88 /* voysis_on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65C4AE09202487FF008F2A88 /* voysis_on.mp3 */; };
+		65ECF4F32029F86900DB1EF1 /* VoysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED8E85917F9571047A2E6 /* VoysisTests.swift */; };
+		65ECF4F7202A0DB900DB1EF1 /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ECF4F6202A0DB900DB1EF1 /* ClientMock.swift */; };
+		65ECF4F9202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ECF4F8202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift */; };
+		F32ED083A6CB664260DCB4FD /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED054AF35482350532C57 /* ServiceProvider.swift */; };
+		F32ED190FD09286815609D71 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED91D71111AA13FD3B671 /* Converter.swift */; };
+		F32ED1DACC56B028C631B18F /* voysis_off.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32ED4E2E6A68A809AB40259 /* voysis_off.mp3 */; };
+		F32ED27475F44319E8F21CD4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED40339BD1D764EDBEE3D /* Service.swift */; };
+		F32ED2C3487901AA33E01ABB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED571BE7F40936814F683 /* Config.swift */; };
+		F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED342823D42A604203DD4 /* TokenManager.swift */; };
+		F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65D499BD20039AD6005AFF23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65D499A920039AD6005AFF23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65D499B120039AD6005AFF23;
+			remoteInfo = Voysis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		654C5E2B207B7DE9002FF5E9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				654C5E2D207B7E07002FF5E9 /* Starscream.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		652D0461206D287200DEA61F /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		6530A35C2063E2AE009B33E7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		654C5E2C207B7E07002FF5E9 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		65C4AE09202487FF008F2A88 /* voysis_on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voysis_on.mp3; sourceTree = "<group>"; };
+		65D499B220039AD6005AFF23 /* Voysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Voysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65D499BB20039AD6005AFF23 /* VoysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoysisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65D499C220039AD6005AFF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65D499FA2004FD6A005AFF23 /* SocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketResponse.swift; sourceTree = "<group>"; };
+		65D49A08200506A3005AFF23 /* SocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRequest.swift; sourceTree = "<group>"; };
+		65D49A10200515E3005AFF23 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		65D49A122005163F005AFF23 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		65D49A1C20051F2B005AFF23 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		65D49A212005362F005AFF23 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		65D49A2C200626C2005AFF23 /* AudioRecorderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderImpl.swift; sourceTree = "<group>"; };
+		65D49A2E200627F8005AFF23 /* ServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
+		65ECF4F6202A0DB900DB1EF1 /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
+		65ECF4F8202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManagerMock.swift; sourceTree = "<group>"; };
+		F32ED054AF35482350532C57 /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		F32ED071C98AA7D34E56437C /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		F32ED342823D42A604203DD4 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		F32ED40339BD1D764EDBEE3D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F32ED4B973DD77DA54D742C7 /* VoysisError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoysisError.swift; sourceTree = "<group>"; };
+		F32ED4E2E6A68A809AB40259 /* voysis_off.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voysis_off.mp3; sourceTree = "<group>"; };
+		F32ED571BE7F40936814F683 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F32ED711D62BDC6CDE44083F /* HeaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTests.swift; sourceTree = "<group>"; };
+		F32ED8E85917F9571047A2E6 /* VoysisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoysisTests.swift; sourceTree = "<group>"; };
+		F32ED91D71111AA13FD3B671 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65D499AE20039AD6005AFF23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65D499B820039AD6005AFF23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				654C5E2E207B7FD8002FF5E9 /* Voysis.framework in Frameworks */,
+				654C5E2A207B7D99002FF5E9 /* Starscream.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6519A1D82051BF67000F35EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				652D0461206D287200DEA61F /* Starscream.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65D499A820039AD6005AFF23 = {
+			isa = PBXGroup;
+			children = (
+				654C5E2C207B7E07002FF5E9 /* Starscream.framework */,
+				65C4AE09202487FF008F2A88 /* voysis_on.mp3 */,
+				65D499B420039AD6005AFF23 /* Voysis */,
+				65D499BF20039AD6005AFF23 /* VoysisTests */,
+				65D499B320039AD6005AFF23 /* Products */,
+				F32ED4E2E6A68A809AB40259 /* voysis_off.mp3 */,
+				6519A1D82051BF67000F35EB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		65D499B320039AD6005AFF23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65D499B220039AD6005AFF23 /* Voysis.framework */,
+				65D499BB20039AD6005AFF23 /* VoysisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65D499B420039AD6005AFF23 /* Voysis */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A0F200515C9005AFF23 /* events */,
+				65D499DD2003DF83005AFF23 /* models */,
+				65D49A1B20051EBB005AFF23 /* recorder */,
+				65D49A0C20051546005AFF23 /* voysis */,
+			);
+			path = Voysis;
+			sourceTree = "<group>";
+		};
+		65D499BF20039AD6005AFF23 /* VoysisTests */ = {
+			isa = PBXGroup;
+			children = (
+				65D499C220039AD6005AFF23 /* Info.plist */,
+				F32ED8E85917F9571047A2E6 /* VoysisTests.swift */,
+				65ECF4F6202A0DB900DB1EF1 /* ClientMock.swift */,
+				65ECF4F8202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift */,
+				F32ED711D62BDC6CDE44083F /* HeaderTests.swift */,
+			);
+			path = VoysisTests;
+			sourceTree = "<group>";
+		};
+		65D499DD2003DF83005AFF23 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A0B200510C1005AFF23 /* response */,
+				65D49A0A20051099005AFF23 /* request */,
+				F32EDB207E98F6B736DFEC0F /* context */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		65D49A0A20051099005AFF23 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A08200506A3005AFF23 /* SocketRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		65D49A0B200510C1005AFF23 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				65D499FA2004FD6A005AFF23 /* SocketResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		65D49A0C20051546005AFF23 /* voysis */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A20200535A1005AFF23 /* api */,
+				65D49A2E200627F8005AFF23 /* ServiceImpl.swift */,
+				F32ED91D71111AA13FD3B671 /* Converter.swift */,
+				F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */,
+				F32ED342823D42A604203DD4 /* TokenManager.swift */,
+			);
+			path = voysis;
+			sourceTree = "<group>";
+		};
+		65D49A0F200515C9005AFF23 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A10200515E3005AFF23 /* EventType.swift */,
+				65D49A122005163F005AFF23 /* Event.swift */,
+				F32ED4B973DD77DA54D742C7 /* VoysisError.swift */,
+			);
+			path = events;
+			sourceTree = "<group>";
+		};
+		65D49A1B20051EBB005AFF23 /* recorder */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A1C20051F2B005AFF23 /* AudioRecorder.swift */,
+				65D49A2C200626C2005AFF23 /* AudioRecorderImpl.swift */,
+				6530A35C2063E2AE009B33E7 /* AudioPlayer.swift */,
+			);
+			path = recorder;
+			sourceTree = "<group>";
+		};
+		65D49A20200535A1005AFF23 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				65D49A212005362F005AFF23 /* Client.swift */,
+				F32ED054AF35482350532C57 /* ServiceProvider.swift */,
+				F32ED40339BD1D764EDBEE3D /* Service.swift */,
+				F32ED571BE7F40936814F683 /* Config.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		F32EDB207E98F6B736DFEC0F /* context */ = {
+			isa = PBXGroup;
+			children = (
+				F32ED071C98AA7D34E56437C /* Context.swift */,
+			);
+			path = context;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		65D499AF20039AD6005AFF23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		65D499B120039AD6005AFF23 /* Voysis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65D499C620039AD6005AFF23 /* Build configuration list for PBXNativeTarget "Voysis" */;
+			buildPhases = (
+				65D499AD20039AD6005AFF23 /* Sources */,
+				65D499AE20039AD6005AFF23 /* Frameworks */,
+				65D499AF20039AD6005AFF23 /* Headers */,
+				65D499B020039AD6005AFF23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Voysis;
+			productName = VoysisSdk;
+			productReference = 65D499B220039AD6005AFF23 /* Voysis.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		65D499BA20039AD6005AFF23 /* VoysisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65D499C920039AD6005AFF23 /* Build configuration list for PBXNativeTarget "VoysisTests" */;
+			buildPhases = (
+				65D499B720039AD6005AFF23 /* Sources */,
+				65D499B820039AD6005AFF23 /* Frameworks */,
+				65D499B920039AD6005AFF23 /* Resources */,
+				654C5E2B207B7DE9002FF5E9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65D499BE20039AD6005AFF23 /* PBXTargetDependency */,
+			);
+			name = VoysisTests;
+			productName = VoysisSdkTests;
+			productReference = 65D499BB20039AD6005AFF23 /* VoysisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65D499A920039AD6005AFF23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Voysis;
+				TargetAttributes = {
+					65D499B120039AD6005AFF23 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = "";
+						ProvisioningStyle = Automatic;
+					};
+					65D499BA20039AD6005AFF23 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 65D499AC20039AD6005AFF23 /* Build configuration list for PBXProject "Voysis" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 65D499A820039AD6005AFF23;
+			productRefGroup = 65D499B320039AD6005AFF23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65D499B120039AD6005AFF23 /* Voysis */,
+				65D499BA20039AD6005AFF23 /* VoysisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65D499B020039AD6005AFF23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C4AE0A202487FF008F2A88 /* voysis_on.mp3 in Resources */,
+				F32ED1DACC56B028C631B18F /* voysis_off.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65D499B920039AD6005AFF23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65D499AD20039AD6005AFF23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6546C12C2077CDCF00C12621 /* EventType.swift in Sources */,
+				6546C12D2077CDCF00C12621 /* Event.swift in Sources */,
+				6546C12E2077CDCF00C12621 /* VoysisError.swift in Sources */,
+				6546C12F2077CDCF00C12621 /* SocketResponse.swift in Sources */,
+				6546C1302077CDCF00C12621 /* SocketRequest.swift in Sources */,
+				6546C1312077CDCF00C12621 /* Context.swift in Sources */,
+				6546C1322077CDCF00C12621 /* AudioRecorder.swift in Sources */,
+				6546C1332077CDCF00C12621 /* AudioRecorderImpl.swift in Sources */,
+				6546C1342077CDCF00C12621 /* AudioPlayer.swift in Sources */,
+				6546C1362077CDCF00C12621 /* Client.swift in Sources */,
+				6546C1392077CDCF00C12621 /* ServiceImpl.swift in Sources */,
+				F32ED083A6CB664260DCB4FD /* ServiceProvider.swift in Sources */,
+				F32ED27475F44319E8F21CD4 /* Service.swift in Sources */,
+				F32ED190FD09286815609D71 /* Converter.swift in Sources */,
+				F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */,
+				F32ED2C3487901AA33E01ABB /* Config.swift in Sources */,
+				F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65D499B720039AD6005AFF23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659E8F9B202C600E00B910C7 /* HeaderTests.swift in Sources */,
+				65ECF4F32029F86900DB1EF1 /* VoysisTests.swift in Sources */,
+				65ECF4F7202A0DB900DB1EF1 /* ClientMock.swift in Sources */,
+				65ECF4F9202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65D499BE20039AD6005AFF23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65D499B120039AD6005AFF23 /* Voysis */;
+			targetProxy = 65D499BD20039AD6005AFF23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65D499C420039AD6005AFF23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		65D499C520039AD6005AFF23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		65D499C720039AD6005AFF23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 457EEH86SV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Voysis/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.Voysis;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65D499C820039AD6005AFF23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 457EEH86SV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Voysis/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.Voysis;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65D499CA20039AD6005AFF23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 457EEH86SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = VoysisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.VoysisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65D499CB20039AD6005AFF23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 457EEH86SV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = VoysisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voysis.VoysisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65D499AC20039AD6005AFF23 /* Build configuration list for PBXProject "Voysis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65D499C420039AD6005AFF23 /* Debug */,
+				65D499C520039AD6005AFF23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65D499C620039AD6005AFF23 /* Build configuration list for PBXNativeTarget "Voysis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65D499C720039AD6005AFF23 /* Debug */,
+				65D499C820039AD6005AFF23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65D499C920039AD6005AFF23 /* Build configuration list for PBXNativeTarget "VoysisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65D499CA20039AD6005AFF23 /* Debug */,
+				65D499CB20039AD6005AFF23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65D499A920039AD6005AFF23 /* Project object */;
+}
