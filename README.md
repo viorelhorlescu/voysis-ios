@@ -29,9 +29,9 @@ Overview
 
 
 The `Voysis.Service` class is the main interface used to process voice recognition requests.
-It is accessed via the static `Voysis.ServiceProvider.make(config: Config(url : "http://ADD-URL.com/websocket"))` method
-The sdk communicates to the network using a websocket connection accomplished using the Starscream.framework
-The `Audio Toolbox Audio Queue Services` is used for recording the users voice.
+It is accessed via the static `Voysis.ServiceProvider.make(config: Config(url : "http://ADD-URL.com/websocket"))` method.
+The sdk communicates to the network using a websocket connection accomplished using the Starscream.framework.
+The iOS core library, `Audio Toolbox Audio Queue Services` is used for recording the users voice.
 
 
 Context - Entities
@@ -40,8 +40,7 @@ Context - Entities
 
 One of the features of using the Voysis service is that different json response types can be returned depending on what service you're subscribed to.
 The json objects which vary in type are Context and Entities. see [Api Docs](https://developers.voysis.com/docs/apis-1#section-stream-audio-data) for information.
-In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for Context and Entities must be declared in advance
-and included during service creation. See the sample application and Usage below for an example of this in action.
+In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for Context and Entities must be declared in advance and included during service creation. See the sample application and Usage below for an example of this in action.
 
 
 Usage
@@ -87,12 +86,12 @@ Usage
   When the EventType is `.audioQueryCompleted` you can extract the final response by doing the following
 
        ```
-       if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
+         if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
                 if let data = try? encoder.encode(response),
                    let json = String(data: data, encoding: .utf8) {
                     print(json)
                 }
-       }
+         }
        ```
 
 
