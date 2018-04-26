@@ -48,13 +48,15 @@ Usage
 
 
 - The first step is to create a Voysis.Servie instance (Make sure to be using a valid url, Context and Entities types)
-
-    ```let voysis = Voysis.ServiceProvider<CommerceContext, CommerceEntities>.Make(config: Config(url: URL(string: "//INCLUDE-URL-HERE")!))```
+```swift
+let voysis = Voysis.ServiceProvider<CommerceContext, CommerceEntities>.Make(config: Config(url: URL(string: "//INCLUDE-URL-HERE")!))
+```
 
 
 - Next, to make a request you can do the following.
-
-     ```try? voysis.startAudioQuery(context: self.context, eventHandler: self.onVoysisEvent, errorHandler: self.onError)```
+```swift
+try? voysis.startAudioQuery(context: self.context, eventHandler: self.onVoysisEvent, errorHandler: self.onError)
+```
 
 
 - Once a request is made callbacks will be received through the eventHandler which the user can choose to react to or ignore.
