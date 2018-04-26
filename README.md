@@ -30,7 +30,7 @@ Overview
 
 The `Voysis.Service` class is the main interface used to process voice recognition requests.
 It is accessed via the static `Voysis.ServiceProvider.make(config: Config(url : "http://ADD-URL.com/websocket"))` method.
-The sdk communicates to the network using a websocket connection accomplished using the Starscream.framework.
+The sdk communicates to the network using a websocket connection accomplished using the `Starscream.framework`.
 The iOS core library, `Audio Toolbox Audio Queue Services` is used for recording the users voice.
 
 
@@ -49,7 +49,7 @@ Usage
 
 - The first step is to create a Voysis.Servie instance (Make sure to be using a valid url, Context and Entities types)
 
-    ```private let voysis = Voysis.ServiceProvider<CommerceContext, CommerceEntities>.Make(config: Config(url: URL(string: "//INCLUDE-URL-HERE")!))```
+    ```let voysis = Voysis.ServiceProvider<CommerceContext, CommerceEntities>.Make(config: Config(url: URL(string: "//INCLUDE-URL-HERE")!))```
 
 
 - Next, to make a request you can do the following.
@@ -78,22 +78,44 @@ Usage
        }
     ```
 
-- The `Voysis.Event` object contains two fields. `EventType` and `ApiResposne`.
+- The `Voysis.Event` object contains two fields: `EventType` and `ApiResposne`.
  `EventType` is a status enum which will always be populated.
- `ApiResponse` is a protocol whos concrete implementation is a data class representation of the json response and will only be populated when the `EventType` is either `EventType.audioQueryCreated`, or `EventType.audioQueryCompleted`.
+ `ApiResponse` is a protocol whos concrete implementation is a data class representation of the json response and will only be populated when the `EventType` is either `.audioQueryCreated`, or `.audioQueryCompleted`. 
+ 
+When the EventType is `.audioQueryCreated` you can extract the *initial* response by doing the following.
+   
+    ```
+         if let response = event.response! as? QueryResponse {
+            print("response is \(response)")
+         }
+    ```
+Note: This response indicates that a successful connection was made and returns meta-data. This resposne can be ignored by most users
 
-
-  When the EventType is `.audioQueryCompleted` you can extract the final response by doing the following
-
-       ```
+When the EventType is `.audioQueryCompleted` you can extract the *final* response by doing the following
+    
+    ```
          if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
                 if let data = try? encoder.encode(response),
                    let json = String(data: data, encoding: .utf8) {
                     print(json)
                 }
          }
-       ```
+    ```
 
+Integration - Carthage
+-------------
+
+Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to add and install.
+
+To integrate the VoysisSdk into your Xcode project using Carthage, specify it in your Cartfile:
+
+`github "/voysis/voysis-ios"`
+
+- Once added, run `carthage update --no-use-binaries --platform iOS` from within your projects root directory.
+- Next, from within xCode, in the tab bar at the top of that window, open the "General" panel.
+- Click on the `+` button under the "Embedded Binaries" section. 
+- Click `Add Other`
+- Navigate to {{YOUR_PROJECT}}/Carthage/Build/iOS and click the `Voysis.framework` and `Starscream.framework`
 
 Manual Integration - Embedded Framework
 -------------
@@ -102,7 +124,7 @@ Manual Integration - Embedded Framework
 Note: This project requires [Carthage](https://github.com/Carthage/Carthage) to download the [Starscream](https://github.com/daltoniam/Starscream) websocket dependency
 
 Adding Voysis Sdk
-- Open the new `Voysis` folder, and drag the `Voysis.xcodeproj` into the Project Navigator of your application's Xcode project.
+- First clone the project. Next, open the new `Voysis` folder, and drag the `Voysis.xcodeproj` into the Project Navigator of your application's Xcode project.
 
     > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
 
