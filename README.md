@@ -40,14 +40,14 @@ Context - Entities
 
 One of the features of using the Voysis service is that different json response types can be returned depending on what service you're subscribed to.
 The json objects which vary in type are Context and Entities. see [Api Docs](https://developers.voysis.com/docs/apis-1#section-stream-audio-data) for information.
-In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for Context and Entities must be declared in advance and included during service creation. See the [demo application](https://github.com/voysis/voysis-ios/tree/master/example/VoysisDemo/VoysisDemo) and [Usage](https://github.com/voysis/voysis-ios/blob/master/README.md#usage) below for an example of this in action.
+In order to facilitate this in the sdk and avail of the swift 4.0 `Codable` serialization protocol, the object structure for `Context` and `Entities` must be declared in advance and included during service creation. See the [demo application](https://github.com/voysis/voysis-ios/tree/master/example/VoysisDemo/VoysisDemo) and [Usage](https://github.com/voysis/voysis-ios/blob/master/README.md#usage) below for an example of this in action.
 
 
 Usage
 -------------
 
 
-- The first step is to create a Voysis.Servie instance (Make sure to be using a valid url, Context and Entities types)
+- The first step is to create a `Voysis.Servie` instance (Make sure to be using a valid url, `Context` and `Entities` types)
 ```swift
 let voysis = Voysis.ServiceProvider<CommerceContext, CommerceEntities>.Make(config: Config(url: URL(string: "//INCLUDE-URL-HERE")!))
 ```
@@ -84,7 +84,7 @@ func onVoysisEvent(event: Event) {
  `EventType` is a status enum which will always be populated.
  `ApiResponse` is a protocol whos concrete implementation is a data class representation of the json response and will only be populated when the `EventType` is either `.audioQueryCreated`, or `.audioQueryCompleted`. 
  
-When the EventType is `.audioQueryCreated` you can extract the *initial* response by doing the following.
+When the `EventType` is `.audioQueryCreated` you can extract the *initial* response by doing the following.
    
 ```swift
 if let response = event.response! as? QueryResponse {
@@ -93,7 +93,7 @@ if let response = event.response! as? QueryResponse {
 ```
 Note: This response indicates that a successful connection was made and returns meta-data. This resposne can be ignored by most users
 
-When the EventType is `.audioQueryCompleted` you can extract the *final* response by doing the following
+When the `EventType` is `.audioQueryCompleted` you can extract the *final* response by doing the following
     
 ```swift
 if let response = event.response! as? StreamResponse<CommerceContext, CommerceEntities> {
