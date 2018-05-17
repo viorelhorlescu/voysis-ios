@@ -1,3 +1,5 @@
+WARNING: This is a beta release of the Voysis Android SDK.
+
 Voysis iOS Swift SDK
 =====================
 
