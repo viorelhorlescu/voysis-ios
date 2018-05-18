@@ -31,6 +31,8 @@ class ViewController: UIViewController {
             onQueryResponse(event: event)
         case .recordingFinished:
             print("Recording Finished")
+        case .vadReceived:
+            print("Vad Received")
         case .audioQueryCompleted:
             onResponse(event: event)
         case .requestCancelled:

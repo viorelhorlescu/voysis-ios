@@ -148,15 +148,12 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
     private func onMessage(data: String) {
         do {
             let event = try Converter.decodeResponse(json: data, context: C.self, entity: E.self)
-            switch event.type {
-            case .recordingFinished:
+            if event.type == .vadReceived {
                 stop()
-            case .audioQueryCompleted:
+            } else if event.type == .audioQueryCompleted {
                 state = .idle
-                handleEvent(event)
-            default:
-                handleEvent(event)
             }
+            handleEvent(event)
         } catch {
             cancel()
             if let error = error as? VoysisError {

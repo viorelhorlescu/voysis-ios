@@ -31,7 +31,7 @@ internal struct Converter {
             case notification:
                 let type = internalResponse.notificationType!
                 if type == vadStop {
-                    return Event(response: nil, type: .recordingFinished)
+                    return Event(response: nil, type: .vadReceived)
                 } else if type == queryComplete {
                     let streamResponse = try Converter.decodeResponse(Response<StreamResponse<C, E>>.self, json)
                     return Event(response: streamResponse.entity, type: .audioQueryCompleted)
