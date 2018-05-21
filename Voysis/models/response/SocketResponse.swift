@@ -16,7 +16,7 @@ public struct Reply: Codable {
 }
 
 public struct Links: Codable {
-    let linksSelf, audio: Audio?
+    public let linksSelf, audio: Audio?
 
     enum CodingKeys: String, CodingKey {
         case linksSelf = "self"
