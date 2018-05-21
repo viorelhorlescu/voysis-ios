@@ -8,7 +8,7 @@ internal struct Response<T: ApiResponse>: Codable {
 }
 
 public struct Audio: Codable {
-    let href: String?
+    public let href: String?
 }
 
 public struct Reply: Codable {
