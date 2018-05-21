@@ -35,7 +35,7 @@ public struct QueryResponse: ApiResponse, Codable {
     public let id, locale, conversationId, queryType: String?
     public let audioQuery: AudioQuery?
     public let requestId: String?
-    public let links: Links?
+    public let _links: Links?
 }
 
 public struct StreamResponse<C: Context, E: Entities>: ApiResponse, Codable {
@@ -46,7 +46,7 @@ public struct StreamResponse<C: Context, E: Entities>: ApiResponse, Codable {
     public let reply: Reply?
     public let entities: E?
     public let context: C?
-    public let links: Links?
+    public let _links: Links?
 }
 
 public struct Token: ApiResponse, Codable {
