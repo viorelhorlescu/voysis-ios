@@ -3,6 +3,7 @@ import AVFoundation
 internal class ServiceImpl<C: Context, E: Entities>: Service {
     private let session = AVAudioSession.sharedInstance()
     private let dispatchQueue: DispatchQueue
+    private let feedbackManager: FeedbackManager
     private let tokenManager: TokenManager
     private let audioQueue: OperationQueue
     private let converter = Converter()
@@ -24,6 +25,7 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         self.tokenManager = tokenManager
         self.userId = userId
         self.dispatchQueue = dispatchQueue
+        feedbackManager = FeedbackManager(dispatchQueue)
         audioQueue = OperationQueue()
         audioQueue.name = "VoysisAudioRequests"
         audioQueue.maxConcurrentOperationCount = 1
@@ -67,6 +69,22 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         stop()
         client.cancelAudioStream()
         state = .idle
+    }
+
+    public func sendFeedback<F: FeedbackType>(feedback: F, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler) {
+        guard feedbackManager.hasPath() else {
+            return
+        }
+        feedbackManager.feedbackHandler = feedbackHandler
+        feedbackManager.feedbackErrorHandler = errorHandler
+        do {
+            let entity = try Converter.encodeFeedbackRequest(feedback: feedback, token: tokenManager.token!.token, path: feedbackManager.feedbackPath!)
+            client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
+        } catch {
+            if let error = error as? VoysisError {
+                feedbackManager.onError(error)
+            }
+        }
     }
 
     private func performAudioQuery(context: Context?) {
@@ -152,6 +170,11 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
                 stop()
             } else if event.type == .audioQueryCompleted {
                 state = .idle
+            } else if event.type == .audioQueryCreated {
+                if let response = event.response! as? QueryResponse,
+                   let href = response._links?.linksSelf?.href {
+                    feedbackManager.feedbackPath = href + "/feedback"
+                }
             }
             handleEvent(event)
         } catch {
