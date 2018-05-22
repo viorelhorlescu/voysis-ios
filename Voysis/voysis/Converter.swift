@@ -21,6 +21,16 @@ internal struct Converter {
         throw VoysisError.requestEncodingError
     }
 
+    static func encodeFeedbackRequest<F: FeedbackType>(feedback: F, token: String, path: String) throws -> String? {
+        let request = FeedbackRequest(entity: feedback, headers: Headers(token: token), restURI: path)
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(request),
+           let json = String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/") {
+            return json
+        }
+        throw VoysisError.requestEncodingError
+    }
+
     static func decodeResponse<C: Context, E: Entities>(json: String, context: C.Type, entity: E.Type) throws -> Event {
         do {
             let internalResponse = try Converter.decodeResponse(Response<EmptyResponse>.self, json)

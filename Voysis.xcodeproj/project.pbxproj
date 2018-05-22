@@ -18,8 +18,6 @@
 		6546C1342077CDCF00C12621 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530A35C2063E2AE009B33E7 /* AudioPlayer.swift */; };
 		6546C1362077CDCF00C12621 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A212005362F005AFF23 /* Client.swift */; };
 		6546C1392077CDCF00C12621 /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D49A2E200627F8005AFF23 /* ServiceImpl.swift */; };
-		654C5E2A207B7D99002FF5E9 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0461206D287200DEA61F /* Starscream.framework */; };
-		654C5E2D207B7E07002FF5E9 /* Starscream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 654C5E2C207B7E07002FF5E9 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		654C5E2E207B7FD8002FF5E9 /* Voysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D499B220039AD6005AFF23 /* Voysis.framework */; };
 		659E8F9B202C600E00B910C7 /* HeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED711D62BDC6CDE44083F /* HeaderTests.swift */; };
 		65C4AE0A202487FF008F2A88 /* voysis_on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65C4AE09202487FF008F2A88 /* voysis_on.mp3 */; };
@@ -33,6 +31,8 @@
 		F32ED2C3487901AA33E01ABB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED571BE7F40936814F683 /* Config.swift */; };
 		F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED342823D42A604203DD4 /* TokenManager.swift */; };
 		F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */; };
+		F32EDC22DED9FEC68E4E33EF /* FeedbackRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32EDE42DF8131590BB07B16 /* FeedbackRequest.swift */; };
+		F32EDF9CF5F43108E808C99C /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,16 +52,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				654C5E2D207B7E07002FF5E9 /* Starscream.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		652D0461206D287200DEA61F /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		6530A35C2063E2AE009B33E7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		654C5E2C207B7E07002FF5E9 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		65C4AE09202487FF008F2A88 /* voysis_on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voysis_on.mp3; sourceTree = "<group>"; };
 		65D499B220039AD6005AFF23 /* Voysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Voysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D499BB20039AD6005AFF23 /* VoysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoysisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +75,7 @@
 		65ECF4F8202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManagerMock.swift; sourceTree = "<group>"; };
 		F32ED054AF35482350532C57 /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		F32ED071C98AA7D34E56437C /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		F32ED342823D42A604203DD4 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F32ED40339BD1D764EDBEE3D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F32ED4B973DD77DA54D742C7 /* VoysisError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoysisError.swift; sourceTree = "<group>"; };
@@ -87,6 +85,7 @@
 		F32ED8E85917F9571047A2E6 /* VoysisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoysisTests.swift; sourceTree = "<group>"; };
 		F32ED91D71111AA13FD3B671 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		F32EDE42DF8131590BB07B16 /* FeedbackRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				654C5E2E207B7FD8002FF5E9 /* Voysis.framework in Frameworks */,
-				654C5E2A207B7D99002FF5E9 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +110,6 @@
 		6519A1D82051BF67000F35EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				652D0461206D287200DEA61F /* Starscream.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,7 +117,6 @@
 		65D499A820039AD6005AFF23 = {
 			isa = PBXGroup;
 			children = (
-				654C5E2C207B7E07002FF5E9 /* Starscream.framework */,
 				65C4AE09202487FF008F2A88 /* voysis_on.mp3 */,
 				65D499B420039AD6005AFF23 /* Voysis */,
 				65D499BF20039AD6005AFF23 /* VoysisTests */,
@@ -176,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				65D49A08200506A3005AFF23 /* SocketRequest.swift */,
+				F32EDE42DF8131590BB07B16 /* FeedbackRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -196,6 +193,7 @@
 				F32ED91D71111AA13FD3B671 /* Converter.swift */,
 				F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */,
 				F32ED342823D42A604203DD4 /* TokenManager.swift */,
+				F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */,
 			);
 			path = voysis;
 			sourceTree = "<group>";
@@ -369,6 +367,8 @@
 				F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */,
 				F32ED2C3487901AA33E01ABB /* Config.swift in Sources */,
 				F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */,
+				F32EDC22DED9FEC68E4E33EF /* FeedbackRequest.swift in Sources */,
+				F32EDF9CF5F43108E808C99C /* FeedbackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
