@@ -2,14 +2,10 @@ import Foundation
 
 internal class FeedbackManager {
 
-    private let dispatchQueue: DispatchQueue
+    var dispatchQueue: DispatchQueue!
     var feedbackErrorHandler: ErrorHandler!
     var feedbackHandler: FeedbackHandler!
     var feedbackPath: String?
-
-    init(_ dispatchQueue: DispatchQueue) {
-        self.dispatchQueue = dispatchQueue
-    }
 
     func onMessage(data: String) {
         do {
@@ -17,7 +13,7 @@ internal class FeedbackManager {
             switch response.responseCode! {
             case 200...299:
                 dispatchQueue.async {
-                    self.feedbackHandler?(true)
+                    self.feedbackHandler?(response.responseCode!)
                 }
             default:
                 onError(VoysisError.networkError(response.responseMessage!))

@@ -1,7 +1,7 @@
 public typealias ErrorHandler = (VoysisError) -> Void
 public typealias EventHandler = (Event) -> Void
 public typealias TokenHandler = (Token) -> Void
-public typealias FeedbackHandler = (Bool) -> Void
+public typealias FeedbackHandler = (Int) -> Void
 
 public enum State {
     case idle

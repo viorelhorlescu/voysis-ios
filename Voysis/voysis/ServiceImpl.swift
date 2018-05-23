@@ -3,7 +3,7 @@ import AVFoundation
 internal class ServiceImpl<C: Context, E: Entities>: Service {
     private let session = AVAudioSession.sharedInstance()
     private let dispatchQueue: DispatchQueue
-    private let feedbackManager: FeedbackManager
+    private let feedbackManager: FeedbackManager!
     private let tokenManager: TokenManager
     private let audioQueue: OperationQueue
     private let converter = Converter()
@@ -19,13 +19,19 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
 
     public var state = State.idle
 
-    init(client: Client, recorder: AudioRecorder, tokenManager: TokenManager, userId: String?, dispatchQueue: DispatchQueue) {
+    init(client: Client,
+         recorder: AudioRecorder,
+         feedbackManager: FeedbackManager = FeedbackManager(),
+         tokenManager: TokenManager,
+         userId: String?,
+         dispatchQueue: DispatchQueue) {
         self.client = client
         self.recorder = recorder
         self.tokenManager = tokenManager
         self.userId = userId
         self.dispatchQueue = dispatchQueue
-        feedbackManager = FeedbackManager(dispatchQueue)
+        feedbackManager.dispatchQueue = dispatchQueue
+        self.feedbackManager = feedbackManager
         audioQueue = OperationQueue()
         audioQueue.name = "VoysisAudioRequests"
         audioQueue.maxConcurrentOperationCount = 1
@@ -78,8 +84,12 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         feedbackManager.feedbackHandler = feedbackHandler
         feedbackManager.feedbackErrorHandler = errorHandler
         do {
-            let entity = try Converter.encodeFeedbackRequest(feedback: feedback, token: tokenManager.token!.token, path: feedbackManager.feedbackPath!)
-            client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
+            if let token = tokenManager.token?.token {
+                let entity = try Converter.encodeFeedbackRequest(feedback: feedback, token: token, path: feedbackManager.feedbackPath!)
+                client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
+            }else {
+                feedbackManager.onError(VoysisError.tokenError)
+            }
         } catch {
             if let error = error as? VoysisError {
                 feedbackManager.onError(error)
