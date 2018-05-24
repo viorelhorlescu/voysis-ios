@@ -81,14 +81,18 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
     public func sendFeedback(queryId: String, feedback: FeedbackData, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler) {
         feedbackManager.feedbackHandler = feedbackHandler
         feedbackManager.feedbackErrorHandler = errorHandler
+        if tokenManager.tokenIsValid() {
+            sendFeedback(feedback: feedback, queryId: queryId)
+        } else {
+            refreshSessionToken(tokenHandler: { _ in self.sendFeedback(feedback: feedback, queryId: queryId) }, errorHandler: feedbackManager.onError)
+        }
+    }
+
+    private func sendFeedback(feedback: FeedbackData, queryId: String) {
         do {
-            if let token = tokenManager.token?.token {
-                let request = SocketRequest(entity: feedback, method: "PATCH", headers: Headers(token: token), restURI: "/queries/\(queryId)/feedback")
-                let entity = try Converter.encodeRequest(socketRequest: request)
-                client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
-            } else {
-                feedbackManager.onError(VoysisError.tokenError)
-            }
+            let request = SocketRequest(entity: feedback, method: "PATCH", headers: Headers(token: tokenManager.token!.token), restURI: "/queries/\(queryId)/feedback")
+            let entity = try Converter.encodeRequest(socketRequest: request)
+            client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
         } catch {
             if let error = error as? VoysisError {
                 feedbackManager.onError(error)

@@ -62,8 +62,8 @@ class VoysisTests: XCTestCase {
 
     func testSuccessFeedbackResponse() {
         let successResponse = expectation(description: "success")
-        tokenManager.token = Token(expiresAt: "", token: "")
-        client.stringEvent = feedback
+        tokenManager.token = Token(expiresAt: "2018-04-17T14:14:06.701Z", token: "")
+        client.stringEvent = token
         let feedbackHandler = { (response: Int) in
             if response == 200 {
                 successResponse.fulfill()
