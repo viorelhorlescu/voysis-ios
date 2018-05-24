@@ -9,19 +9,28 @@ class VoysisTests: XCTestCase {
     }
 
     let token = "{\"type\":\"response\",\"entity\":{\"token\":\"1\",\"expiresAt\":\"2018-04-17T14:14:06.701Z\"},\"requestId\":\"0\",\"responseCode\":200,\"responseMessage\":\"OK\"}"
+    let feedback = "{\"type\":\"response\",\"entity\":{},\"requestId\":\"0\",\"responseCode\":200,\"responseMessage\":\"OK\"}"
 
     private var voysis: ServiceImpl<TestContext, TestEntities>!
     private var audioRecordManager: AudioRecordManagerMock!
     private var client: ClientMock!
     private var context: Context?
+    private var tokenManager: TokenManager!
     private var resreshToken = "token"
 
     override func setUp() {
         super.setUp()
         client = ClientMock()
         audioRecordManager = AudioRecordManagerMock()
-        let tokenManager = TokenManager(refreshToken: resreshToken, dispatchQueue: DispatchQueue.main)
-        voysis = ServiceImpl(client: client, recorder: audioRecordManager, tokenManager: tokenManager, userId: "", dispatchQueue: DispatchQueue.main)
+        tokenManager = TokenManager(refreshToken: resreshToken, dispatchQueue: DispatchQueue.main)
+        let feedbackManager = FeedbackManager(DispatchQueue.main)
+        feedbackManager.dispatchQueue = DispatchQueue.main
+        voysis = ServiceImpl(client: client,
+                recorder: audioRecordManager,
+                feedbackManager: feedbackManager,
+                tokenManager: tokenManager,
+                userId: "",
+                dispatchQueue: DispatchQueue.main)
 
         //closure cannot be null but is not required for most tests.
         client.dataCallback = { ( data: Data) in
@@ -48,6 +57,31 @@ class VoysisTests: XCTestCase {
             }
         }
         voysis.startAudioQuery(context: context, eventHandler: voysisEvent, errorHandler: { (_: VoysisError) in })
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testSuccessFeedbackResponse() {
+        let successResponse = expectation(description: "success")
+        tokenManager.token = Token(expiresAt: "2018-04-17T14:14:06.701Z", token: "")
+        client.stringEvent = token
+        let feedbackHandler = { (response: Int) in
+            if response == 200 {
+                successResponse.fulfill()
+            }
+        }
+        voysis.sendFeedback(queryId: "1", feedback: FeedbackData(), feedbackHandler: feedbackHandler, errorHandler: { (_: VoysisError) in })
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testTokenFailFeedbackResponse() {
+        let errorResponse = expectation(description: "tokenError")
+        client.stringEvent = feedback
+        let errorHandler = { (error: VoysisError) in
+            if case VoysisError.tokenError = error {
+                errorResponse.fulfill()
+            }
+        }
+        voysis.sendFeedback(queryId: "1" ,feedback: FeedbackData(), feedbackHandler: { (_: Int) in }, errorHandler: errorHandler)
         waitForExpectations(timeout: 5, handler: nil)
     }
 

@@ -1,6 +1,7 @@
 public typealias ErrorHandler = (VoysisError) -> Void
 public typealias EventHandler = (Event) -> Void
 public typealias TokenHandler = (Token) -> Void
+public typealias FeedbackHandler = (Int) -> Void
 
 public enum State {
     case idle
@@ -52,5 +53,7 @@ public protocol Service {
      - Parameter errorHandler: called if error occurs
     */
     func refreshSessionToken(tokenHandler: @escaping TokenHandler, errorHandler: @escaping ErrorHandler)
+
+    func sendFeedback(queryId: String, feedback: FeedbackData, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler)
 
 }

@@ -3,6 +3,7 @@ import AVFoundation
 internal class ServiceImpl<C: Context, E: Entities>: Service {
     private let session = AVAudioSession.sharedInstance()
     private let dispatchQueue: DispatchQueue
+    private let feedbackManager: FeedbackManager
     private let tokenManager: TokenManager
     private let audioQueue: OperationQueue
     private let converter = Converter()
@@ -18,12 +19,18 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
 
     public var state = State.idle
 
-    init(client: Client, recorder: AudioRecorder, tokenManager: TokenManager, userId: String?, dispatchQueue: DispatchQueue) {
+    init(client: Client,
+         recorder: AudioRecorder,
+         feedbackManager: FeedbackManager,
+         tokenManager: TokenManager,
+         userId: String?,
+         dispatchQueue: DispatchQueue) {
         self.client = client
         self.recorder = recorder
         self.tokenManager = tokenManager
         self.userId = userId
         self.dispatchQueue = dispatchQueue
+        self.feedbackManager = feedbackManager
         audioQueue = OperationQueue()
         audioQueue.name = "VoysisAudioRequests"
         audioQueue.maxConcurrentOperationCount = 1
@@ -50,7 +57,9 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         tokenManager.tokenHandler = tokenHandler
         tokenManager.tokenErrorHandler = errorHandler
         do {
-            let entity = try Converter.encodeRequest(context: nil as EmptyContext?, token: tokenManager.refreshToken, path: "/tokens")
+            let requestEntity = RequestEntity(userId: userId, context: nil as EmptyContext?)
+            let request = SocketRequest(entity: requestEntity, method: "POST", headers: Headers(token: tokenManager.refreshToken), restURI: "/tokens")
+            let entity = try Converter.encodeRequest(socketRequest: request)
             client.sendString(entity: entity!, onMessage: tokenManager.onTokenMessage, onError: tokenManager.onError)
         } catch {
             if let error = error as? VoysisError {
@@ -69,6 +78,28 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         state = .idle
     }
 
+    public func sendFeedback(queryId: String, feedback: FeedbackData, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler) {
+        feedbackManager.feedbackHandler = feedbackHandler
+        feedbackManager.feedbackErrorHandler = errorHandler
+        if tokenManager.tokenIsValid() {
+            sendFeedback(feedback: feedback, queryId: queryId)
+        } else {
+            refreshSessionToken(tokenHandler: { _ in self.sendFeedback(feedback: feedback, queryId: queryId) }, errorHandler: feedbackManager.onError)
+        }
+    }
+
+    private func sendFeedback(feedback: FeedbackData, queryId: String) {
+        do {
+            let request = SocketRequest(entity: feedback, method: "PATCH", headers: Headers(token: tokenManager.token!.token), restURI: "/queries/\(queryId)/feedback")
+            let entity = try Converter.encodeRequest(socketRequest: request)
+            client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
+        } catch {
+            if let error = error as? VoysisError {
+                feedbackManager.onError(error)
+            }
+        }
+    }
+
     private func performAudioQuery(context: Context?) {
         state = .busy
         startRecording()
@@ -81,7 +112,9 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
 
     private func startAudioQuery(context: Context?) {
         do {
-            if let entity = try Converter.encodeRequest(context: context as? C, userId: userId, token: tokenManager.token!.token, path: "/queries") {
+            let entity = RequestEntity(userId: userId, context: context as? C)
+            let request = SocketRequest(entity: entity, method: "POST", headers: Headers(token: tokenManager.token!.token), restURI: "/queries")
+            if let entity = try Converter.encodeRequest(socketRequest: request) {
                 byteSender = client.setupAudioStream(entity: entity, onMessage: self.onMessage, onError: self.onError)
                 audioQueue.isSuspended = false
             }

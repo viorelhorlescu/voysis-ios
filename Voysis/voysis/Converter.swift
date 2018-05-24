@@ -11,12 +11,10 @@ internal struct Converter {
     static let response = "response"
     static let vadStop = "vad_stop"
 
-    static func encodeRequest<C: Context>(context: C?, userId: String? = nil, token: String, path: String) throws -> String? {
-        let request = SocketRequest(entity: RequestEntity(userId: userId, context: context), headers: Headers(token: token), restURI: path)
+    static func encodeRequest<T>(socketRequest: SocketRequest<T>) throws -> String? {
         let encoder = JSONEncoder()
-        if let data = try? encoder.encode(request),
-           let json = String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/") {
-            return json
+        if let data = try? encoder.encode(socketRequest) {
+            return String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/")
         }
         throw VoysisError.requestEncodingError
     }

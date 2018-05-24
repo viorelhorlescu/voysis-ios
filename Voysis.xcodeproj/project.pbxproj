@@ -33,6 +33,7 @@
 		F32ED2C3487901AA33E01ABB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED571BE7F40936814F683 /* Config.swift */; };
 		F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED342823D42A604203DD4 /* TokenManager.swift */; };
 		F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */; };
+		F32EDF9CF5F43108E808C99C /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		65ECF4F8202A0DDF00DB1EF1 /* AudioRecordManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManagerMock.swift; sourceTree = "<group>"; };
 		F32ED054AF35482350532C57 /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		F32ED071C98AA7D34E56437C /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		F32ED342823D42A604203DD4 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F32ED40339BD1D764EDBEE3D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F32ED4B973DD77DA54D742C7 /* VoysisError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoysisError.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				F32ED91D71111AA13FD3B671 /* Converter.swift */,
 				F32EDCBADFAAF92610373FE6 /* WebSocketClient.swift */,
 				F32ED342823D42A604203DD4 /* TokenManager.swift */,
+				F32ED26DBFCEB0597E881AB2 /* FeedbackManager.swift */,
 			);
 			path = voysis;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				F32EDB3A98275ED46A056A22 /* WebSocketClient.swift in Sources */,
 				F32ED2C3487901AA33E01ABB /* Config.swift in Sources */,
 				F32ED46EFB3BA8F54FCBF676 /* TokenManager.swift in Sources */,
+				F32EDF9CF5F43108E808C99C /* FeedbackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
