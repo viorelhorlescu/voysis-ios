@@ -23,8 +23,7 @@ class VoysisTests: XCTestCase {
         client = ClientMock()
         audioRecordManager = AudioRecordManagerMock()
         tokenManager = TokenManager(refreshToken: resreshToken, dispatchQueue: DispatchQueue.main)
-        let feedbackManager = FeedbackManager()
-        feedbackManager.feedbackPath = "path"
+        let feedbackManager = FeedbackManager(DispatchQueue.main)
         feedbackManager.dispatchQueue = DispatchQueue.main
         voysis = ServiceImpl(client: client,
                 recorder: audioRecordManager,
@@ -70,7 +69,7 @@ class VoysisTests: XCTestCase {
                 successResponse.fulfill()
             }
         }
-        voysis.sendFeedback(feedback: DurationEntity(), feedbackHandler: feedbackHandler, errorHandler: { (_: VoysisError) in })
+        voysis.sendFeedback(queryId: "1", feedback: FeedbackData(), feedbackHandler: feedbackHandler, errorHandler: { (_: VoysisError) in })
         waitForExpectations(timeout: 5, handler: nil)
     }
 
@@ -82,7 +81,7 @@ class VoysisTests: XCTestCase {
                 errorResponse.fulfill()
             }
         }
-        voysis.sendFeedback(feedback: DurationEntity(), feedbackHandler: { (_: Int) in }, errorHandler: errorHandler)
+        voysis.sendFeedback(queryId: "1" ,feedback: FeedbackData(), feedbackHandler: { (_: Int) in }, errorHandler: errorHandler)
         waitForExpectations(timeout: 5, handler: nil)
     }
 

@@ -5,7 +5,10 @@ internal class FeedbackManager {
     var dispatchQueue: DispatchQueue!
     var feedbackErrorHandler: ErrorHandler!
     var feedbackHandler: FeedbackHandler!
-    var feedbackPath: String?
+
+    init(_ dispatchQueue: DispatchQueue) {
+        self.dispatchQueue = dispatchQueue
+    }
 
     func onMessage(data: String) {
         do {
@@ -29,10 +32,6 @@ internal class FeedbackManager {
         dispatchQueue.async {
             self.feedbackErrorHandler?(error)
         }
-    }
-
-    func hasPath() -> Bool {
-        return feedbackPath != nil
     }
 
 }

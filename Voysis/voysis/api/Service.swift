@@ -54,6 +54,6 @@ public protocol Service {
     */
     func refreshSessionToken(tokenHandler: @escaping TokenHandler, errorHandler: @escaping ErrorHandler)
 
-    func sendFeedback<F : FeedbackType>(feedback: F, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler)
+    func sendFeedback(queryId: String, feedback: FeedbackData, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler)
 
 }

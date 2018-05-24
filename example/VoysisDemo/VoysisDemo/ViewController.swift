@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             }
             if let data = try? encoder.encode(response),
                let json = String(data: data, encoding: .utf8) {
-                self.response.text.append("\n\n\n \(json)")
+                self.response.text = json
             }
         }
     }

@@ -1,11 +1,11 @@
 import UIKit
 import Foundation
 
-struct SocketRequest<C: Context>: Codable {
-    let entity: RequestEntity<C>?
+struct SocketRequest<E: Codable>: Codable {
+    let entity: E?
+    let method: String
     let requestID: String = "0"
     let headers: Headers
-    let method = "POST"
     let type = "request"
     let restURI: String
 
@@ -59,6 +59,23 @@ public struct Headers: Codable {
         case authorization = "Authorization"
         case userAgent = "User-Agent"
         case accept = "Accept"
+    }
+}
+
+public struct FeedbackData: Codable {
+    public var durations = Duration()
+    public var rating, description: String?
+
+    public init() {
+
+    }
+}
+
+public struct Duration: Codable {
+    public var userStop, vad, complete: Int?
+
+    public init() {
+
     }
 }
 

@@ -3,7 +3,7 @@ import AVFoundation
 internal class ServiceImpl<C: Context, E: Entities>: Service {
     private let session = AVAudioSession.sharedInstance()
     private let dispatchQueue: DispatchQueue
-    private let feedbackManager: FeedbackManager!
+    private let feedbackManager: FeedbackManager
     private let tokenManager: TokenManager
     private let audioQueue: OperationQueue
     private let converter = Converter()
@@ -21,7 +21,7 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
 
     init(client: Client,
          recorder: AudioRecorder,
-         feedbackManager: FeedbackManager = FeedbackManager(),
+         feedbackManager: FeedbackManager,
          tokenManager: TokenManager,
          userId: String?,
          dispatchQueue: DispatchQueue) {
@@ -30,7 +30,6 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         self.tokenManager = tokenManager
         self.userId = userId
         self.dispatchQueue = dispatchQueue
-        feedbackManager.dispatchQueue = dispatchQueue
         self.feedbackManager = feedbackManager
         audioQueue = OperationQueue()
         audioQueue.name = "VoysisAudioRequests"
@@ -58,7 +57,9 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         tokenManager.tokenHandler = tokenHandler
         tokenManager.tokenErrorHandler = errorHandler
         do {
-            let entity = try Converter.encodeRequest(context: nil as EmptyContext?, token: tokenManager.refreshToken, path: "/tokens")
+            let requestEntity = RequestEntity(userId: userId, context: nil as EmptyContext?)
+            let request = SocketRequest(entity: requestEntity, method: "POST", headers: Headers(token: tokenManager.refreshToken), restURI: "/tokens")
+            let entity = try Converter.encodeRequest(socketRequest: request)
             client.sendString(entity: entity!, onMessage: tokenManager.onTokenMessage, onError: tokenManager.onError)
         } catch {
             if let error = error as? VoysisError {
@@ -77,17 +78,15 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
         state = .idle
     }
 
-    public func sendFeedback<F: FeedbackType>(feedback: F, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler) {
-        guard feedbackManager.hasPath() else {
-            return
-        }
+    public func sendFeedback(queryId: String, feedback: FeedbackData, feedbackHandler: @escaping FeedbackHandler, errorHandler: @escaping ErrorHandler) {
         feedbackManager.feedbackHandler = feedbackHandler
         feedbackManager.feedbackErrorHandler = errorHandler
         do {
             if let token = tokenManager.token?.token {
-                let entity = try Converter.encodeFeedbackRequest(feedback: feedback, token: token, path: feedbackManager.feedbackPath!)
+                let request = SocketRequest(entity: feedback, method: "PATCH", headers: Headers(token: token), restURI: "/queries/\(queryId)/feedback")
+                let entity = try Converter.encodeRequest(socketRequest: request)
                 client.sendString(entity: entity!, onMessage: feedbackManager.onMessage, onError: feedbackManager.onError)
-            }else {
+            } else {
                 feedbackManager.onError(VoysisError.tokenError)
             }
         } catch {
@@ -109,7 +108,9 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
 
     private func startAudioQuery(context: Context?) {
         do {
-            if let entity = try Converter.encodeRequest(context: context as? C, userId: userId, token: tokenManager.token!.token, path: "/queries") {
+            let entity = RequestEntity(userId: userId, context: context as? C)
+            let request = SocketRequest(entity: entity, method: "POST", headers: Headers(token: tokenManager.token!.token), restURI: "/queries")
+            if let entity = try Converter.encodeRequest(socketRequest: request) {
                 byteSender = client.setupAudioStream(entity: entity, onMessage: self.onMessage, onError: self.onError)
                 audioQueue.isSuspended = false
             }
@@ -180,11 +181,6 @@ internal class ServiceImpl<C: Context, E: Entities>: Service {
                 stop()
             } else if event.type == .audioQueryCompleted {
                 state = .idle
-            } else if event.type == .audioQueryCreated {
-                if let response = event.response! as? QueryResponse,
-                   let href = response._links?.linksSelf?.href {
-                    feedbackManager.feedbackPath = href + "/feedback"
-                }
             }
             handleEvent(event)
         } catch {
